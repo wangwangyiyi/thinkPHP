@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>梦中程序员管理后台--QQ:305530751</title>
+    <link rel="shortcut icon" href="../../../public/static/admin/img/logo.jpg" type="image/x-icon">
+    <link href="../../../public/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+
+<body>
+    <!-- Loading Container -->
+    <div class="loading-container">
+        <div class="loader"></div>
+    </div>
+    <!--  /Loading Container -->
+    <!--  /Loading Container -->
+    <!-- Navbar -->
+    <?php include_once('/../application/admin/view/common/header.html');?>
+   
+    <!-- /Navbar -->
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+    {include file="common/left"/}
+       
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+               <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li class="active">
+                            <i class="fa fa-home"></i>&nbsp;栏目管理
+                        </li>
+                        <li>栏目列表</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+               <div class="page-body">
+                    <a href="{:url('Article/add')}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>&nbsp;栏目添加</a>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <span class="widget-caption">栏目列表</span>
+                                    <div class="widget-buttons">
+                                       
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>作者</th>
+                                                <th>标题</th>
+                                                <th>内容</th>
+                                                <th>时间</th>
+                                                <th>所属栏目</th>
+                                                <th>缩略图</th>
+                                                <th>操作</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        {volist name='result' id='vo'}
+                                             <tr>
+                                                <th>{$vo.id}</th>
+                                                <th>{$vo.author}</th>
+                                                <th>{$vo.title}</th>
+                                                <th style="width:28%">{$vo.content}</th>
+                                                <th>{$vo.time|date='Y-m-d H:i:s',###}</th>
+                                                <th>{$vo.p_id}</th>
+                                                <th><img src="../../../public/upLoadFiles/{$vo.pic}" alt="tu"></th>
+                                                <th>
+                                                    <a href="edit?id={$vo.id}">修改</a>
+                                                    <a href="del?id={$vo.id}" onclick="return check()">删除</a>
+                                                </th>
+                                            </tr>
+                                        {/volist}
+                                        </tbody>
+                                    </table>
+                                         {$result->render()}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+            <img src="C:/wamp/www/yi/application/admin/upLoadFiles/1.png" alt="">
+
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+
+    <script src="../../../public/static/admin/js/skins.min.js"></script>
+    <!--Basic Scripts-->
+    <script src="../../../public/static/admin/js/jquery.min.js"></script>
+    <script src="../../../public/static/admin/js/bootstrap.min.js"></script>
+    <script src="../../../public/static/admin/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <!--Beyond Scripts-->
+    <script src="../../../public/static/admin/js/beyond.js"></script>
+    <script>
+        $(window).bind("load", function () {
+
+            /*Sets Themed Colors Based on Themes*/
+            themeprimary = getThemeColorFromCss('themeprimary');
+            themesecondary = getThemeColorFromCss('themesecondary');
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            themefourthcolor = getThemeColorFromCss('themefourthcolor');
+            themefifthcolor = getThemeColorFromCss('themefifthcolor');
+
+        });
+        function check(){
+            return confirm('确认删除？');
+        }
+    </script>
+</body>
+<!--  /Body -->
+</html>

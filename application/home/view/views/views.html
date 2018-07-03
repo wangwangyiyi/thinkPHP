@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../../public/static/home/favicon.ico" />
+	<link rel="stylesheet" href="../../../public/static/home/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../../public/static/home/css/animate.css" />
+	<link rel="stylesheet" href="../../../public/static/home/css/index.css" />
+</head>
+<body>
+	{include file="common/nav"}
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="animated fadeInDown">极地川北欢迎你！</h1>
+		{volist name="resul" id="vo"}
+		<div class="text-center img">
+			<h4>上传者:{$vo.username}</h4>
+			<img width="100%" src="../../../public/upLoadFiles/{$vo.name}" alt="">
+			<p class="text-right">上传时间：{$vo.time|date="Y-m-d H/i/s",###}</p>
+
+		</div>
+		{/volist}
+		<div class="footer">
+			<p>Copyright 2018 <a href="#">www.hefeng.com</a> 版权归本站人员持有</p>
+		</div>
+	</div>
+
+	
+	<script src="../../../public/static/home/js/jquery-3.3.1.min.js"></script>
+	<script src="../../../public/static/home/js/bootstrap.min.js"></script>
+</body>
+</html>

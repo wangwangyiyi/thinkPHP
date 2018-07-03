@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../../public/static/home/favicon.ico" />
+	<link rel="stylesheet" href="../../../public/static/home/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../../public/static/home/css/animate.css" />
+	<link rel="stylesheet" href="../../../public/static/home/css/index.css" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menu">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="{:url('Index/index')}" class="navbar-brand">HOME</a>
+
+			</div>
+			<div class="navbar-menu collapse navbar-collapse">
+				
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{:url('Login/login')}">登录</a></li>
+					<li><a href="{:url('Register/register')}">注册</a></li>
+					<li><a href="#">关于本站</a></li>
+				</ul>
+				
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="row">
+			{volist name="result" id="vo"}
+			<div class="col-sm-12 col-md-8">
+				<h1 class="article-title">{$vo.title}</h1>
+				{$vo.author}						
+				<p>{$vo.time|date="Y-m-d H/i/s",###}</p>	
+				<img src="../../../public/upLoadFiles/{$vo.pic}" alt="">
+				{$vo.content}
+				{/volist}
+				<div class="article-comment">
+					<div class="page-header"><b>相关评论</b></div>
+					<div class="comment-content">
+						<form action="message">
+							<div class="form-group">
+								{volist name="result" id="vo"}
+								<input type="hidden" name="p_id" value="{$vo.p_id}">
+								{/volist}
+								<input type="hidden" name="id" value="{$_GET['id']}">
+
+							</div>
+							<div class="form-group">
+								<textarea class="form-control" id="message" name="message" rows="5" cols=""></textarea>
+							</div>
+							<div class="form-group pull-right">
+								<button class="btn btn-primary">评价</button>
+							</div>
+						</form>
+					</div>
+					<div class="clearfix"></div>
+					<div class="comment-list">
+	
+						{volist name="dat" id="vo"}	
+						<div class="comment-list-item">
+							<div class="info">赏金<small>{$vo.time|date="Y-m-d H/i/s",###}</small></div>
+							<div class="content">{$vo.message}</div>
+						</div>
+						{/volist}
+
+					</div>
+				</div>
+			</div>
+		</div>
+			
+			<div class="col-sm-12 col-md-4 clearfix">
+				<div class="affix">
+					<div class="page-header h3">推荐文章</div>
+					<div class="topic-list">
+						<div class="topic-list-item">
+							<a href="#" class="title">数据库学习简单教程（递归的应用）（一）</a>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+	</div>
+	
+	<div class="footer">
+		<p>Copyright 2018 <a href="#">www.dreamphp.com.cn</a> All Rights Reserved</p>
+	</div>
+	
+	<script src="../../../public/static/home/js/jquery-3.3.1.min.js"></script>
+	<script src="../../../public/static/home/js/bootstrap.min.js"></script>
+</body>
+</html>

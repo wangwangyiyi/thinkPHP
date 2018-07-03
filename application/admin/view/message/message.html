@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>梦中程序员管理后台--QQ:305530751</title>
+    <link rel="shortcut icon" href="../../../public/static/admin/img/logo.jpg" type="image/x-icon">
+    <link href="../../../public/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- Loading Container -->
+    <div class="loading-container">
+        <div class="loader"></div>
+    </div>
+    <!--  /Loading Container -->
+   <!--  /Loading Container -->
+    <!-- Navbar -->
+    <?php include_once('/../application/admin/view/common/header.html');?>
+   
+    <!-- /Navbar -->
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+    {include file="common/left"/}
+       
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li class="active">
+                            <i class="fa fa-home"></i>&nbsp;用户管理
+                        </li>
+                        <li>用户列表</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+                    <a href="{:url('Admin/add')}" class="btn btn-sm btn-primary"><i class="fa fa-plus"></i>&nbsp;用户添加</a>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="widget">
+                                <div class="widget-header">
+                                    <span class="widget-caption">用户列表</span>
+                                    <div class="widget-buttons">
+                                        <ul class="pagination pagination-sm">
+                                            <li class="disabled"><a href="#">«</a></li>
+                                            <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">»</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="widget-body">
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>用户名称</th>
+                                                <th>用户密码</th>
+                                                <th>时间</th>
+                                                <th>所属栏目</th>
+                                                
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                             <tr>
+                                                {volist name="result" id="vo"}
+                                                <td>{$vo.id}</td>
+                                                <td>{$vo.username}</td>
+                                                <td>{$vo.message}</td>
+                                                <td>{$vo.time|date='Y-m-d H/i/s',###}</td>
+                                                <td>{$vo.p_id}</td>
+                                                
+                                                <td>
+                                                    <a href="edit?id={$vo.id}" class="btn btn-azure btn-xs">编辑</a>
+                                                    <a href="del?id={$vo.id}" onclick="return check()" class="btn btn-danger btn-xs">删除</a>
+                                                </td>
+                                            </tr>
+                                                {/volist}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {$result->render()}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+
+    <script src="../../../public/static/admin/js/skins.min.js"></script>
+    <!--Basic Scripts-->
+    <script src="../../../public/static/admin/js/jquery.min.js"></script>
+    <script src="../../../public/static/admin/js/bootstrap.min.js"></script>
+    <script src="../../../public/static/admin/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <!--Beyond Scripts-->
+    <script src="../../../public/static/admin/js/beyond.js"></script>
+    <script>
+        $(window).bind("load", function () {
+
+            /*Sets Themed Colors Based on Themes*/
+            themeprimary = getThemeColorFromCss('themeprimary');
+            themesecondary = getThemeColorFromCss('themesecondary');
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            themefourthcolor = getThemeColorFromCss('themefourthcolor');
+            themefifthcolor = getThemeColorFromCss('themefifthcolor');
+
+        });
+       function check(){
+         return   confirm('确认删除？');
+        }
+    </script>
+</body>
+<!--  /Body -->
+</html>

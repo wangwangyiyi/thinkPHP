@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../../public/static/home/css/favicon.ico" />
+	<link rel="stylesheet" href="../../../public/static/home/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../../public/static/home/css/animate.css" />
+	<link rel="stylesheet" href="../../../public/static/home/css/index.css" />
+</head>
+<body style="background-image: url('../../../public/static/home/img/103.jpg')">
+	{include file="common/nav"}
+	
+	<div class="container">
+		<div class="jumbotron">
+			<h1 class="animated fadeInDown">川北之地欢迎你</h1>
+			<p class="animated shake">
+				阆中市辖乡。1951年置鹤峰乡。位于市境东北部，距市区73公里。面积26.1平方公里，人口0.9万。阆（中）巴（中）公路过境。辖金鸭子、瓦店子、石曲子、池塘垭、仆钟山、七里扁、油榨房、大树垭、铁枪庙、新庙子、川主庙11个村委会。农业主产水稻、小麦、玉米、油菜籽，兼产桑、柚果、沙参、桔梗、杜仲
+
+			</p>
+			<h2 class="animated fadeInUp">申请广告牌请联系： <a href="#">894059255</a></h2>
+		</div>
+		<div class="row">
+			<div class="col-sm-12 col-md-8">
+				<div class="page-header h3">博文列表</div>
+				<div class="article-list">
+					{volist name ="resul" id="vo"}
+					<div class="article-list-item">
+						<a href="{:url('Article/article')}?id={$vo.id}" class="title">{$vo.title}</a>
+						<div class="info">
+							<span class="time" style="display: block">所属栏目：{$vo.p_id}</span>
+
+							<span class="time" style="display: block">发布时间：{$vo.time|date="Y-m-d H/i/s",###}</span>
+							<span class="read" style="display: block">
+								<img src="../../../public/upLoadFiles/{$vo.pic}" alt=""></span>
+						</div>
+					</div>	
+					{/volist}
+					{$resul->render()}		
+				</div>
+				<nav class="">
+					
+
+
+
+				</nav>
+			</div>
+			
+		</div>
+	</div>
+	<div class="footer">
+		<p>Copyright 2018 <a href="#">www.hefeng.com</a> 版权归本站人员持有</p>
+	</div>
+	
+	<script src="../../../public/static/home/js/jquery-3.3.1.min.js"></script>
+	<script src="../../../public/static/home/js/bootstrap.min.js"></script>
+</body>
+</html>

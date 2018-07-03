@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<link rel="shortcut icon" type="image/x-icon" href="../../../public/static/home/favicon.ico" />
+	<link rel="stylesheet" href="../../../public/static/home/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="../../../public/static/home/css/animate.css" />
+	<link rel="stylesheet" href="../../../public/static/home/css/index.css" />
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menu">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a href="{:url('Index/index')}" class="navbar-brand">HOME</a>
+				
+			</div>
+			<div class="navbar-menu collapse navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="{:url('Login/login')}">登录</a></li>
+					<li><a href="{:url('Register/register')}">注册</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<div class="content center-block animated fadeInDown">
+			<div class="page-header h1">用户登录</div>
+			<form action="#" method="post">
+				<div class="form-group">
+					<label for="username" class="control-label">用户名</label>
+					<input type="text" class="form-control" id="username" name="username" placeholder="用户名" />
+				</div>
+				<div class="form-group">
+					<label for="password" class="control-label">密码</label>
+					<input type="password" class="form-control" id="password" name="password" placeholder="密码" />
+				</div>
+				<div class="form-group">
+					<div><img src="{:captcha_src()}" onclick="this.src='{:captcha_src()}'" alt="captcha" /></div>
+
+					<label for="verify" class="control-label">验证码</label>
+					<div class="input-group">
+						<input type="text" class="form-control" id="verify" name="verify" placeholder="验证码" />
+						<span class="input-group-addon">123</span>
+					</div>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-primary btn-block">登录</button>
+				</div>
+			</form>
+		</div>
+		<div class="footer">
+		<p>Copyright 2018 <a href="#">www.hefeng.com</a> 版权归本站人员持有</p>
+	</div>
+	</div>
+	
+	<script src="../../../public/static/home/js/jquery-3.3.1.min.js"></script>
+	<script src="../../../public/static/home/js/bootstrap.min.js"></script>
+</body>
+</html>

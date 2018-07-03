@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>梦中程序员管理后台--QQ:305530751</title>
+    <link rel="shortcut icon" href="../../../public/static/admin/img/logo.jpg" type="image/x-icon">
+    <link href="../../../public/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- Loading Container -->
+    <div class="loading-container">
+        <div class="loader"></div>
+    </div>
+    <!--  /Loading Container -->
+    <!-- Navbar -->
+    <?php include_once('/../application/admin/view/common/header.html');?>
+   
+    <!-- /Navbar -->
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+    {include file="common/left"/}
+       
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li class="active">
+                            <i class="fa fa-home"></i>&nbsp;管理员管理
+                        </li>
+                        <li>
+                        	管理员添加
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+                	<div class="row">
+                		<div class="col-xs-12">
+                			<div class="widget radius-bordered">
+                				<div class="widget-header bordered-bottom bordered-themeprimary">
+                					<span class="widget-caption">管理员添加</span>
+                				</div>
+                				<div class="widget-body">
+                                    
+                                    <form class="form-horizontal" method="post">
+                                        <input type="hidden" id="{$result.id}">
+                                        <div class="form-group">
+                                            <label for="catename" class="col-sm-2 control-label no-padding-right">管理员名称</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" name="username" placeholder="{$result.username}" />
+                                                <p class="help-block">请输入管理名称</p>
+                                            </div>
+                                        </div>
+                                        
+                                         <div class="form-group">
+                                             <label for="catename" class="col-sm-2 control-label no-padding-right">管理员密码</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" name="password" placeholder="{$result.password}" />
+                                                <p class="help-block">请输入管理密码</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                             <label for="catename" class="col-sm-2 control-label no-padding-right">确认密码</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" name="re_password" placeholder="{$result.password}" />
+                                                <p class="help-block">请输入确认密码</p>
+                                            </div>
+                                        </div>
+                                       <input type="submit" value="提交" class="btn btn-info">
+                                    </form>
+                                   
+                				</div>
+                			</div>
+                		</div>
+                	</div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+
+    <script src="../../../public/static/admin/js/skins.min.js"></script>
+    <!--Basic Scripts-->
+    <script src="../../../public/static/admin/js/jquery.min.js"></script>
+    <script src="../../../public/static/admin/js/bootstrap.min.js"></script>
+    <script src="../../../public/static/admin/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <!--Beyond Scripts-->
+    <script src="../../../public/static/admin/js/beyond.js"></script>
+    <script>
+        $(window).bind("load", function () {
+
+            /*Sets Themed Colors Based on Themes*/
+            themeprimary = getThemeColorFromCss('themeprimary');
+            themesecondary = getThemeColorFromCss('themesecondary');
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            themefourthcolor = getThemeColorFromCss('themefourthcolor');
+            themefifthcolor = getThemeColorFromCss('themefifthcolor');
+
+        });
+    </script>
+</body>
+<!--  /Body -->
+</html>

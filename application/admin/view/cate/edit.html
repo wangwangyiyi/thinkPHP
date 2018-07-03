@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>梦中程序员管理后台--QQ:305530751</title>
+    <link rel="shortcut icon" href="../../../public/static/admin/img/logo.jpg" type="image/x-icon">
+    <link href="../../../public/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+
+
+<body>
+    <!-- Loading Container -->
+    <div class="loading-container">
+        <div class="loader"></div>
+    </div>
+    <!--  /Loading Container -->
+  <!--  /Loading Container -->
+    <!-- Navbar -->
+    <?php include_once('/../application/admin/view/common/header.html');?>
+   
+    <!-- /Navbar -->
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+    {include file="common/left"/}
+       
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+      <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li class="active">
+                            <i class="fa fa-home"></i>&nbsp;栏目管理
+                        </li>
+                        <li>
+                            栏目修改
+                        </li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="widget radius-bordered">
+                                <div class="widget-header bordered-bottom bordered-themeprimary">
+                                    <span class="widget-caption">栏目修改</span>
+                                </div>
+                                <div class="widget-body">
+                                    <form class="form-horizontal" method="post">
+                                        <div class="form-group">
+                                            <input type="hidden" name="{$result.id}">
+                                            <label for="catename" class="col-sm-2 control-label no-padding-right">栏目名称</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" name="catename" placeholder="{$result.catename}" />
+                                                <p class="help-block">请输入栏目名称</p>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" class="btn btn-primary">修改</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+
+        </div>
+
+    </div>
+
+    <script src="../../../public/static/admin/js/skins.min.js"></script>
+    <!--Basic Scripts-->
+    <script src="../../../public/static/admin/js/jquery.min.js"></script>
+    <script src="../../../public/static/admin/js/bootstrap.min.js"></script>
+    <script src="../../../public/static/admin/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <!--Beyond Scripts-->
+    <script src="../../../public/static/admin/js/beyond.js"></script>
+    <script>
+        $(window).bind("load", function () {
+
+            /*Sets Themed Colors Based on Themes*/
+            themeprimary = getThemeColorFromCss('themeprimary');
+            themesecondary = getThemeColorFromCss('themesecondary');
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            themefourthcolor = getThemeColorFromCss('themefourthcolor');
+            themefifthcolor = getThemeColorFromCss('themefifthcolor');
+
+        });
+    </script>
+</body>
+<!--  /Body -->
+</html>

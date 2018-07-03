@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>梦中程序员管理后台--QQ:305530751</title>
+    <link rel="shortcut icon" href="../../../public/static/admin/img/logo.jpg" type="image/x-icon">
+    <link href="../../../public/static/admin/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/weather-icons.min.css" rel="stylesheet" />
+    <link href="../../../public/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <!-- Loading Container -->
+    <div class="loading-container">
+        <div class="loader"></div>
+    </div>
+    <!--  /Loading Container -->
+    <!--  /Loading Container -->
+    <!-- Navbar -->
+    <?php include_once('/../application/admin/view/common/header.html');?>
+   
+    <!-- /Navbar -->
+    <!-- Main Container -->
+    <div class="main-container container-fluid">
+        <!-- Page Container -->
+    {include file="common/left"/}
+       
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <!-- /Page Sidebar -->
+            <!-- Page Content -->
+            <div class="page-content">
+                <!-- Page Breadcrumb -->
+                <div class="page-breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="fa fa-home"></i>&nbsp;文章管理
+                        </li>
+                        <li>文章添加</li>
+                    </ul>
+                </div>
+                <!-- /Page Breadcrumb -->
+                <!-- Page Body -->
+                <div class="page-body">
+                	<div class="row">
+                		<div class="col-xs-12">
+                			<div class="widget radius-bordered">
+                				<div class="widget-header bordered-bottom bordered-themeprimary">
+                					<span class="widget-caption">文章添加</span>
+                				</div>
+                				<div class="widget-body">
+                					<form action="" class="form-horizontal" method="post" enctype="multipart/form-data">
+                						<div class="form-group">
+                                            <label for="title" class="control-label col-sm-2">文章作者</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="author" name="author" placeholder="文章作者" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                							<label for="title" class="control-label col-sm-2">文章标题</label>
+                							<div class="col-sm-6">
+                								<input type="text" class="form-control" id="title" name="title" placeholder="文章标题" />
+                							</div>
+                						</div>
+                						<div class="form-group">
+                							<label for="cateid" class="control-label col-sm-2">所属导航</label>
+                							<div class="col-sm-6">
+                								<select name="p_id" class="form-control">
+                                                    {volist name="result" id="vo"}
+                									<option value="{$vo.catename}">{$vo.catename}</option>
+                									{/volist}
+                								</select>
+                							</div>
+                						</div>
+                                         <div class="form-group">
+                                            <label for="title" class="control-label col-sm-2">文章图片</label>
+                                            <div class="col-sm-6">
+                                                <input type="file"  id="pic" name="pic" placeholder="文章图片" />
+                                            </div>
+                                        </div>
+                						<div class="form-group">
+                							<label for="content" class="control-label col-sm-2">文章内容</label>
+                							<div class="col-sm-6">
+                								<textarea name="content" id="content" cols="30" rows="10" class=""></textarea>
+                							</div>
+                						</div>
+                						<div class="form-group">
+                							<div class="col-sm-offset-2 col-sm-6">
+                								<button class="btn btn-primary">添加</button>
+                							</div>
+                						</div>
+                					</form>
+                				</div>
+                			</div>
+                		</div>
+                	</div>
+                </div>
+                <!-- /Page Body -->
+            </div>
+            <!-- /Page Content -->
+
+        </div>
+        <!-- /Page Container -->
+        <!-- Main Container -->
+
+    </div>
+
+    <script src="../../../public/static/admin/js/skins.min.js"></script>
+    <!--Basic Scripts-->
+    <script src="../../../public/static/admin/js/jquery.min.js"></script>
+    <script src="../../../public/static/admin/js/bootstrap.min.js"></script>
+    <script src="../../../public/static/admin/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <!--Beyond Scripts-->
+    <script src="../../../public/static/admin/js/beyond.js"></script>
+    <script src="../../../public/static/admin/lib/ueditor/ueditor.config.js"></script>
+    <script src="../../../public/static/admin/lib/ueditor/ueditor.all.js"></script>
+    <script>
+    	UE.getEditor('content');
+    </script>
+    <script>
+        $(window).bind("load", function () {
+
+            /*Sets Themed Colors Based on Themes*/
+            themeprimary = getThemeColorFromCss('themeprimary');
+            themesecondary = getThemeColorFromCss('themesecondary');
+            themethirdcolor = getThemeColorFromCss('themethirdcolor');
+            themefourthcolor = getThemeColorFromCss('themefourthcolor');
+            themefifthcolor = getThemeColorFromCss('themefifthcolor');
+
+        });
+    </script>
+</body>
+<!--  /Body -->
+</html>
